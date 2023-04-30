@@ -1,8 +1,7 @@
 # Final Project: Intro To Robotics 
-- 
-    - Repository: UCM_CSE_180_FINAL
-    - Authors: Mike Monokandilos, Milan Overholtzer, Jerin Sajimon
-    - Instructor: StefanoCarpin
+- Repository: UCM_CSE_180_FINAL
+- Authors: Mike Monokandilos, Milan Overholtzer, Jerin Sajimon
+- Instructor: StefanoCarpin
 
 # RELEVANT FINAL PROJECT COMMANDS
 ### Running Final Project
@@ -13,9 +12,9 @@
 
 #### LAB07
 - not sure if this is what we are supposed to use
-export TURTLEBOT3_MODEL=waffle
-export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/foxy/share/turtlebot3_gazebo/models
-ros2 launch gazeboenvs tb3_simulation.launch.py 
+    1.  export TURTLEBOT3_MODEL=waffle
+    2. export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/foxy/share/turtlebot3_gazebo/models
+    3. ros2 launch gazeboenvs tb3_simulation.launch.py 
 
 
 # WORKSPACE SETUP: FOXY, GAZEBO, UBUNTU, AND C++ CODE
