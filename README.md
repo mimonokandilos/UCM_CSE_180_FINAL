@@ -47,10 +47,3 @@ https://docs.ros.org/en/foxy/Installation/Alternatives/Ubuntu-Development-Setup.
     6. Optional: Install additional ROS2 packages: sudo apt install ros-foxy-* (be patient -- this will take some time and a lot of space!).
     7. It is advised that you add the following command to your startup scripts (e.g., .basrc) source /opt/ros/foxy/setup.bash
 
-
-# LAB07
-- not sure if this is what we are supposed to use
-export TURTLEBOT3_MODEL=waffle
-export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/foxy/share/turtlebot3_gazebo/models
-ros2 launch gazeboenvs tb3_simulation.launch.py 
-
