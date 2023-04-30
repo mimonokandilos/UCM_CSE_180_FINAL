@@ -3,6 +3,14 @@
 ### Author: Mike Monokandilos, Milan Overholtzer, Jerin Sajimon
 ### Instructor: StefanoCarpin
 
+
+# RELEVANT FINAL PROJECT COMMANDS
+- 
+    1. export TURTLEBOT3_MODEL=waffle
+    2. export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~Desktop/MRTP/MRTP/src/gazeboenvs/models
+    3. ros2 launch gazeboenvs tb3_simulation.launch.py
+
+
 # Creating a Workspace
 - 
     1. mkdir -p CSE180/src
