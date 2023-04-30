@@ -1,7 +1,8 @@
 # Final Project: Intro To Robotics 
-###     Repository: UCM_CSE_180_FINAL
-###     Authors: Mike Monokandilos, Milan Overholtzer, Jerin Sajimon
-###     Instructor: StefanoCarpin
+- 
+    - Repository: UCM_CSE_180_FINAL
+    - Authors: Mike Monokandilos, Milan Overholtzer, Jerin Sajimon
+    - Instructor: StefanoCarpin
 
 # RELEVANT FINAL PROJECT COMMANDS
 ### Running Final Project
