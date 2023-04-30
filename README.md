@@ -1,35 +1,44 @@
-# Intro To Robotics
-### UCM_CSE_180_FINAL
-### Author: Mike Monokandilos, Milan Overholtzer, Jerin Sajimon
+# Final Project: Intro To Robotics 
+### Repository: UCM_CSE_180_FINAL
+### Authors: Mike Monokandilos, Milan Overholtzer, Jerin Sajimon
 ### Instructor: StefanoCarpin
 
-
 # RELEVANT FINAL PROJECT COMMANDS
+### Running Final Project
 - 
     1. export TURTLEBOT3_MODEL=waffle
     2. export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~Desktop/MRTP/MRTP/src/gazeboenvs/models
     3. ros2 launch gazeboenvs tb3_simulation.launch.py
 
+#### LAB07
+- not sure if this is what we are supposed to use
+export TURTLEBOT3_MODEL=waffle
+export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/foxy/share/turtlebot3_gazebo/models
+ros2 launch gazeboenvs tb3_simulation.launch.py 
 
-# Creating a Workspace
+
+# WORKSPACE SETUP: FOXY, GAZEBO, UBUNTU, AND C++ CODE
+### Creating a Workspace
 - 
     1. mkdir -p CSE180/src
     2. colcon build
     3. . install/local_setup.bash
 
-# Creating a Package
+
+### Creating a Package
 -  
     1. ros2 pkg create [name_of_pkg]
     2. ros2 pkg create --build-type ament_cmake [name_of_pkg]
 
-# Download ubuntu at this link:
+
+### Download ubuntu at this link:
 https://www.releases.ubuntu.com/focal/
 
-# Download foxy at this link:
+### Download foxy at this link:
 https://docs.ros.org/en/foxy/Installation/Alternatives/Ubuntu-Development-Setup.html
 
 
-#   Instructions from STEFANO CARPIN:
+#   Instructions taken from STEFANO CARPIN: https://github.com/stefanocarpin/MRTP
 -   1. Install ROS2 Foxy: follow instructions for Desktop Install on https://docs.ros.org/en/foxy/  Installation/Ubuntu-Install-Debians.html.
     2. Install Gazebo: sudo apt install ros-foxy-gazebo-*
     3. Install the turtlebot packages: sudo apt install ros-foxy-turtlebot3* (you can skip this step if you do the optional step described below)
@@ -45,8 +54,3 @@ export TURTLEBOT3_MODEL=waffle
 export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/foxy/share/turtlebot3_gazebo/models
 ros2 launch gazeboenvs tb3_simulation.launch.py 
 
-
-# FINAL PROJECT COMMANDS
-export TURTLEBOT3_MODEL=waffle
-export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~Desktop/MRTP/MRTP/src/gazeboenvs/models
-ros2 launch gazeboenvs tb3_simulation.launch.py
