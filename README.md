@@ -32,10 +32,10 @@
 
 
 ### Download ubuntu at this link:
-https://www.releases.ubuntu.com/focal/
+- https://www.releases.ubuntu.com/focal/
 
 ### Download foxy at this link:
-https://docs.ros.org/en/foxy/Installation/Alternatives/Ubuntu-Development-Setup.html
+- https://docs.ros.org/en/foxy/Installation/Alternatives/Ubuntu-Development-Setup.html
 
 
 #   Instructions taken from STEFANO CARPIN: https://github.com/stefanocarpin/MRTP
