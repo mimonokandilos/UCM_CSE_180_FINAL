@@ -1,5 +1,32 @@
 
+/*#include <rclcpp/rclcpp.hpp> 
+#include <navigation/navigation.hpp>
+#include <nav_msgs/msg/occupancy_grid.hpp>
 
+class mapStuff : public rclcpp::Node {
+public:
+	mapStuff():Node("mapstuff") {
+		sub = this->create_subscription<nav_msgs::msg::OccupancyGrid>
+      ("/map",1000,std::bind(&mapStuff::callback,this,std::placeholders::_1));
+    }
+    
+private:
+	void callback(const nav_msgs::msg::OccupancyGrid::SharedPtr msg) {
+		RCLCPP_INFO(nodeh->get_logger(), "size: %d", msg->data.size());
+	}
+	
+	rclcpp::Subscription<nav_msgs::msg::OccupancyGrid>::SharedPtr sub;
+};
+
+
+int main(int argc,char **argv) {
+
+  rclcpp::init(argc,argv); // initialize ROS subsystem
+  rclcpp::spin(std::make_shared<mapStuff>());  // create and spin
+  rclcpp::shutdown();
+  return 0;
+  
+}*/
 
 //DONE added section
 
