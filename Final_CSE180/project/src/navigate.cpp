@@ -16,6 +16,7 @@ private:
 	}
 	
 	rclcpp::Subscription<nav_msgs::msg::OccupancyGrid>::SharedPtr sub;
+	rclcpp::Node::SharedPtr nodeh;
 };
 
 
