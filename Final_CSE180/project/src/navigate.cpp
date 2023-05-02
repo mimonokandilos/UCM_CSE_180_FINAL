@@ -5,15 +5,19 @@
 
 
 
-
-
-
-
-
-
 #include <rclcpp/rclcpp.hpp> 
 #include <navigation/navigation.hpp>
 #include <iostream>
+#include <nav_msgs/msg/occupancy_grid.hpp>
+
+rclcpp::Node::SharedPtr nodeh;
+
+
+
+void callback(const nav_msgs::msg::OccupancyGrid::SharedPtr msg) {
+	RCLCPP_INFO(nodeh->get_logger(), "size: %d", msg->data.size());
+}
+
 
 
 
@@ -21,7 +25,13 @@ int main(int argc,char **argv) {
  
   rclcpp::init(argc,argv); // initialize ROS 
   Navigator navigator(true,false); // create node with debug info but not verbose
+  nodeh = rclcpp::Node::make_shared("navigate");
+	auto sub = nodeh->create_subscription<nav_msgs::msg::OccupancyGrid>
+		("/map", 1000, &callback);
 
+
+
+    
   // first: it is mandatory to initialize the pose of the robot
   geometry_msgs::msg::Pose::SharedPtr init = std::make_shared<geometry_msgs::msg::Pose>();
   init->position.x = -2;
@@ -81,7 +91,7 @@ int main(int argc,char **argv) {
   	arr_index++;
    }
   // complete here....
-  
+  rclcpp::spin(nodeh);
   rclcpp::shutdown(); // shutdown ROS
   return 0;
 }
