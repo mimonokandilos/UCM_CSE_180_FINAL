@@ -25,6 +25,11 @@ find_package(rclcpp_action REQUIRED)
 find_package(lifecycle_msgs REQUIRED)
 find_package(action_msgs REQUIRED)
 
+#for subscribing to scan
+#find_package(sensor_msgs REQUIRED)
+#find_package(std_msgs REQUIRED)
+#find_package(algorithm REQUIRED)
+
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -59,6 +64,10 @@ target_include_directories(navigate
 
 
 ament_target_dependencies(navigator rclcpp geometry_msgs lifecycle_msgs rclcpp_action nav2_msgs)
+# for topic "map"
+#ament_target_dependencies(navigator rclcpp nav_msgs)
+# for topic "scan"
+#ament_target_dependencies(navigator rclcpp sensor_msgs std_msgs algorithm)
 ament_export_targets(navigatorlib HAS_LIBRARY_TARGET)
 ament_export_dependencies(rclcpp geometry_msgs lifecycle_msgs rclcpp_action nav2_msgs)
 ament_target_dependencies(navigate rclcpp geometry_msgs lifecycle_msgs rclcpp_action nav2_msgs)
