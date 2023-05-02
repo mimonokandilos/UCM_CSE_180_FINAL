@@ -13,7 +13,7 @@
   
   <depend>rclcpp</depend>
   <depend>std_msgs</depend>
-  <depend>sensr_msgs</depend>
+  <depend>sensor_msgs</depend>
   <depend>geometry_msgs</depend>
   <depend>turtlesim</depend>
   <depend>tf2</depend>
@@ -21,6 +21,7 @@
   <depend>rcl_interfaces</depend>
   <depend>nav_msgs</depend>
   <depend>nav2_msgs</depend>
+  <depend>algorithm</depend>
   
   <!-- End of edits to package.xml -->
 
