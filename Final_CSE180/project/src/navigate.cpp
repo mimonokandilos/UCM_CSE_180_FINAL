@@ -20,6 +20,32 @@
 #include <iostream>
 //OG
 
+void printUnknownColumnLocations(nav_msgs::OccupancyGrid map);
+
+class UnknownColumnDetector : public rclcpp::Node
+{
+public:
+  UnknownColumnDetector() : Node("unknown_column_detector")
+  {
+    map_subscription_ = this->create_subscription<nav_msgs::OccupancyGrid>(
+      "map",
+      rclcpp::QoS(10),
+      std::bind(&UnknownColumnDetector::mapCallback, this, std::placeholders::_1)
+    );
+  }
+
+private:
+  rclcpp::Subscription<nav_msgs::OccupancyGrid>::SharedPtr map_subscription_;
+  nav_msgs::OccupancyGrid map_;
+
+  void mapCallback(const nav_msgs::OccupancyGrid::SharedPtr msg)
+  {
+    map_ = *msg;
+    printUnknownColumnLocations(map_);
+  }
+};
+
+
 
 //START added section
 void scanCallback(const sensor_msgs::msg::LaserScan::SharedPtr msg)
@@ -59,6 +85,47 @@ void scanCallback(const sensor_msgs::msg::LaserScan::SharedPtr msg)
   }
 }
 
+// void printUnknownColumnLocations(nav_msgs::OccupancyGrid map)
+// {
+//   int map_width = map.info.width;
+//   int map_height = map.info.height;
+//   float map_resolution = map.info.resolution;
+//   std::vector<int8_t> map_data = map.data;
+
+//   for (int x = 0; x < map_width; x++) {
+//     bool found_unknown = false;
+//     bool found_occupied = false;
+//     int start_y = -1;
+
+//     for (int y = 0; y < map_height; y++) {
+//       int index = x + y * map_width;
+//       float occupancy_prob = map_data[index] / 100.0; // Convert from occupancy grid value to probability
+
+//       if (occupancy_prob == 0.5) {
+//         found_unknown = true;
+//         found_occupied = false;
+//         start_y = -1;
+//       } else if (occupancy_prob > 0.5) {
+//         found_unknown = false;
+//         found_occupied = true;
+//         start_y = -1;
+//       } else { // occupancy_prob < 0.5
+//         if (found_unknown && start_y == -1) {
+//           start_y = y;
+//         } else if (found_occupied) {
+//           start_y = -1;
+//         } else if (found_unknown && y - start_y + 1 >= MIN_COLUMN_HEIGHT) { // Found a column!
+//           float center_x = (x + 0.5) * map_resolution + map.info.origin.position.x;
+//           float center_y = (start_y + (y - start_y + 1) / 2.0 + 0.5) * map_resolution + map.info.origin.position.y;
+//           RCLCPP_INFO(node->get_logger(), "Unknown column found at (%.2f, %.2f)", center_x, center_y);
+//           found_unknown = false;
+//           start_y = -1;
+//         }
+//       }
+//     }
+//   }
+// }
+
 
 
 
@@ -72,8 +139,9 @@ int main(int argc, char **argv)
   
   auto node = rclcpp::Node::make_shared("scan_listener");
   auto sub = node->create_subscription<sensor_msgs::msg::LaserScan>("/scan", 10, scanCallback);
+  auto node = std::make_shared<UnknownColumnDetector>();
 
-  rclcpp::spin(node);
+  
   nav_msgs::msg::OccupancyGrid map;
   sensor_msgs::msg::PointCloud2 point_cloud;
 
@@ -187,9 +255,13 @@ int main(int argc, char **argv)
         data[2] = pos.z();
       }
     }
+  rclcpp::spin(node);
+
+
   rclcpp::shutdown();
   return 0;
 }
+
 
 
 //DONE added section
