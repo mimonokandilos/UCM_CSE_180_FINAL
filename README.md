@@ -5,11 +5,19 @@
 
 # RELEVANT FINAL PROJECT COMMANDS
 ### Running Final Project
-- 
+-  OPEN 1ST TERMINAL TO RUN GAZEBO
     1. export TURTLEBOT3_MODEL=waffle
     2. export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~Desktop/MRTP/MRTP/src/gazeboenvs/models
     3. ros2 launch gazeboenvs tb3_simulation.launch.py
 
+
+-  OPEN SECOND TERMINAL TO RUN PROJECT
+    1. colcon build
+    2. . install/setup.bash
+    3. ros2 run project navigate
+
+
+    
 #### LAB07
 - not sure if this is what we are supposed to use
     1.  export TURTLEBOT3_MODEL=waffle
