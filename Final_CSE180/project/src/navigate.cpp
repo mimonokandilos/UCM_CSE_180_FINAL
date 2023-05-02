@@ -1,3 +1,4 @@
+// SUBSCRIBING TO "MAP"
 
 /*#include <rclcpp/rclcpp.hpp> 
 #include <navigation/navigation.hpp>
@@ -24,6 +25,43 @@ int main(int argc,char **argv) {
 
   rclcpp::init(argc,argv); // initialize ROS subsystem
   rclcpp::spin(std::make_shared<mapStuff>());  // create and spin
+  rclcpp::shutdown();
+  return 0;
+  
+}*/
+
+// SUBSCRIBING TO "SCAN"
+
+
+/*#include <rclcpp/rclcpp.hpp>
+#include <sensor_msgs/msg/laser_scan.hpp>
+#include <std_msgs/msg/float32.hpp>
+#include <algorithm>
+
+class scanStuff : public rclcpp::Node {
+public:
+	scanStuff():Node("scanstuff") {
+		sub = this->create_subscription<sensor_msgs::nsg::LaserScan>
+      ("scan",1000,std::bind(&scanStuff::scanCallback,this,std::placeholders::_1));
+	}
+	
+private:
+	void scanCallback(const sensor_msgs::msg::LasesrScan::SharedPtr msg) {
+		std::vector<float>::const_iterator minval = min(msg->ranges.begin(), msg->ranges.end());
+		
+		RCLCPP_INFO(nodeh->get_logger(), "size: %f", *minval);
+	}
+	
+	rclcpp::Subscription<sensor_msgs::msg::LaserScan>::SharedPtr sub;
+	rclcpp::Node::SharedPtr nodeh;
+	
+};
+
+
+int main(int argc, char **argv) {
+
+  rclcpp::init(argc,argv); // initialize ROS subsystem
+  rclcpp::spin(std::make_shared<scanStuff>());  // create and spin
   rclcpp::shutdown();
   return 0;
   
