@@ -55,3 +55,15 @@
     6. Optional: Install additional ROS2 packages: sudo apt install ros-foxy-* (be patient -- this will take some time and a lot of space!).
     7. It is advised that you add the following command to your startup scripts (e.g., .basrc) source /opt/ros/foxy/setup.bash
 
+# DEMOS
+<div align="center">
+  <br>
+  <h2>Gazebo</h2>
+  <img src="demos/gazebo.gif" alt="Start up Gazebo environment">
+  <br>
+  <br>
+  <h2>Execute Navigation Control</h2>
+  <img src="demos/navigation.gif" alt="Execute Navigation Control Code">
+  <br>
+  <br>
+</div>
